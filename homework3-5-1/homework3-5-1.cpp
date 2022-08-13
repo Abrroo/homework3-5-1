@@ -5,35 +5,27 @@
 class Figure
 {
 protected:
-    int count_side_none = 0;
+    int count_side = 0;
 public:
-    int get_c_s_f()
+    int get_c_s()
     {
-        return this->count_side_none;
+        return this->count_side;
     }
 };
 
-class Triangle : protected Figure
+class Triangle : public Figure
 {
-private:
-    int count_side_triangle = 3;
 public:
-    Triangle() : Figure() {}
-    int get_c_s_t()
-    {
-        return this->count_side_triangle;
+    Triangle() : Figure() {
+        count_side = 3;
     }
 };
 
-class Quadrangle : protected Figure
+class Quadrangle : public Figure
 {
-private:
-    int count_side_quadrangle = 4;
 public:
-    Quadrangle() : Figure() {}
-    int get_c_s_q()
-    {
-        return this->count_side_quadrangle;
+    Quadrangle() : Figure() {
+        count_side = 4;
     }
 };
 
@@ -45,9 +37,9 @@ int main()
     Quadrangle quadrangle;
     Figure figure;
     std::cout << "Количество сторон :" << std::endl;
-    std::cout << "Фигура: " << figure.get_c_s_f() << std::endl;
-    std::cout << "Треугольник: " << triangle.get_c_s_t() << std::endl;
-    std::cout << "Четырехугольник: " << quadrangle.get_c_s_q() << std::endl;
+    std::cout << "Фигура: " << figure.get_c_s() << std::endl;
+    std::cout << "Треугольник: " << triangle.get_c_s() << std::endl;
+    std::cout << "Четырехугольник: " << quadrangle.get_c_s() << std::endl;
 
 
 }
